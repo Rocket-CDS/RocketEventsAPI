@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="packages\**" />
+    <EmbeddedResource Remove="packages\**" />
+    <None Remove="packages\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\DNNrocket\API\DNNrocketAPI.csproj" />
+    <ProjectReference Include="..\..\DNNrocket\RocketPortal\RocketPortal.csproj" />
+    <ProjectReference Include="..\..\DNNrocket\Simplisity\Simplisity.csproj" />
+    <ProjectReference Include="..\RocketDirectoryAPI\RocketDirectoryAPI.csproj" />
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="&#xD;&#xA;DNNpackager.exe $(ProjectDir) $(ProjectDir)$(OutDir) $(ConfigurationName)" />
+  </Target>
+
+</Project>

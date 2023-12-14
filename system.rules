@@ -1,0 +1,132 @@
+<genxml>
+  <systemkey>rocketeventsapi</systemkey>
+  <systemname>RocketEventsAPI</systemname>
+  <databasetable>RocketEventsAPI</databasetable>
+  <logtracking>False</logtracking>
+  <active>True</active>
+  <icon>auto_awesome_motion</icon>
+
+	<sqlindex list="true">
+		<genxml>
+			<systemkey>rocketeventsapi</systemkey>
+			<ref>articlename</ref>
+			<xpath>genxml/lang/genxml/textbox/articlename</xpath>
+			<typecode>rocketeventsapiART</typecode>
+		</genxml>
+		<genxml>
+			<systemkey>rocketeventsapi</systemkey>
+			<ref>publisheddate</ref>
+			<xpath>genxml/textbox/publisheddate</xpath>
+			<typecode>rocketeventsapiART</typecode>
+		</genxml>
+		<genxml>
+			<systemkey>rocketeventsapi</systemkey>
+			<ref>articleref</ref>
+			<xpath>genxml/textbox/articleref</xpath>
+			<typecode>rocketeventsapiART</typecode>
+		</genxml>
+	</sqlindex>
+
+	<groupsdata list="true">
+    <genxml>
+      <textbox>
+        <groupref>catalog</groupref>
+        <groupicon></groupicon>
+      </textbox>
+    </genxml>
+  </groupsdata>
+
+  <providerdata list="true">
+
+    <genxml>
+      <textbox>
+        <interfacekey>scheduler-rocketeventsapi</interfacekey>
+        <namespaceclass>RocketEventsAPI.Components.Scheduler</namespaceclass>
+        <assembly>RocketEventsAPI</assembly>
+        <interfaceicon></interfaceicon>
+        <defaultcommand></defaultcommand>
+        <relpath>/DesktopModules/DNNrocketModules/RocketEventsAPI</relpath>
+      </textbox>
+      <providertype>scheduler</providertype>
+      <dropdownlist>
+        <group></group>
+      </dropdownlist>
+      <checkbox>
+        <onmenu>false</onmenu>
+        <active>true</active>
+      </checkbox>
+      <radio>
+        <securityrolesadministrators>1</securityrolesadministrators>
+        <securityrolesmanager>0</securityrolesmanager>
+        <securityroleseditor>0</securityroleseditor>
+        <securityrolesclienteditor>0</securityrolesclienteditor>
+        <securityrolesregisteredusers>0</securityrolesregisteredusers>
+        <securityrolessubscribers>0</securityrolessubscribers>
+        <securityrolesall>0</securityrolesall>
+      </radio>
+    </genxml>
+
+	  <genxml>
+		  <textbox>
+			  <interfacekey>events-rocketeventsapi</interfacekey>
+			  <namespaceclass>RocketEventsAPI.Components.Events</namespaceclass>
+			  <assembly>RocketEventsAPI</assembly>
+			  <interfaceicon></interfaceicon>
+			  <defaultcommand></defaultcommand>
+			  <relpath>/DesktopModules/DNNrocketModules/RocketEventsAPI</relpath>
+		  </textbox>
+		  <providertype>eventprovider</providertype>
+		  <dropdownlist>
+			  <group></group>
+		  </dropdownlist>
+		  <checkbox>
+			  <onmenu>false</onmenu>
+			  <active>true</active>
+		  </checkbox>
+		  <radio>
+			  <securityrolesadministrators>1</securityrolesadministrators>
+			  <securityrolesmanager>0</securityrolesmanager>
+			  <securityroleseditor>0</securityroleseditor>
+			  <securityrolesclienteditor>0</securityrolesclienteditor>
+			  <securityrolesregisteredusers>0</securityrolesregisteredusers>
+			  <securityrolessubscribers>0</securityrolessubscribers>
+			  <securityrolesall>0</securityrolesall>
+		  </radio>
+	  </genxml>	  
+
+  </providerdata>
+
+
+  <interfacedata list="true">
+
+    <genxml>
+      <textbox>
+        <interfacekey>rocketeventsapi</interfacekey>
+        <namespaceclass>RocketEventsAPI.API.StartConnect</namespaceclass>
+        <assembly>RocketEventsAPI</assembly>
+        <interfaceicon></interfaceicon>
+        <defaultcommand>rocketeventsapi_get</defaultcommand>
+        <relpath>/DesktopModules/DNNrocketModules/RocketEventsAPI</relpath>
+      </textbox>
+      <providertype></providertype>
+      <dropdownlist>
+        <group></group>
+      </dropdownlist>
+      <checkbox>
+        <onmenu>false</onmenu>
+        <active>true</active>
+      </checkbox>
+      <radio>
+        <securityrolesadministrators>1</securityrolesadministrators>
+        <securityrolesmanager>1</securityrolesmanager>
+        <securityroleseditor>1</securityroleseditor>
+        <securityrolesclienteditor>0</securityrolesclienteditor>
+        <securityrolesregisteredusers>0</securityrolesregisteredusers>
+        <securityrolessubscribers>0</securityrolessubscribers>
+        <securityrolesall>0</securityrolesall>
+      </radio>
+    </genxml>
+
+  </interfacedata>
+</genxml>
+
