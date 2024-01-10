@@ -27,5 +27,8 @@
 		</publisheddate>
     </product>
   </sqlorderby>
- 
+	<menuprovider>
+		<assembly>RocketDirectoryAPI</assembly>
+		<namespaceclass>RocketDirectoryAPI.Components.MenuDirectory</namespaceclass>
+	</menuprovider>
 </root>
