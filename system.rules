@@ -1,6 +1,7 @@
 <genxml>
   <systemkey>rocketeventsapi</systemkey>
-  <systemname>RocketEventsAPI</systemname>
+	<basesystemkey>rocketdirectoryapi</basesystemkey>
+	<systemname>RocketEventsAPI</systemname>
   <databasetable>RocketEventsAPI</databasetable>
   <logtracking>False</logtracking>
   <active>True</active>
