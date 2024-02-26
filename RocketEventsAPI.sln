@@ -14,6 +14,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RocketDirectoryAPI", "..\Ro
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RocketEventsAPI", "RocketEventsAPI.csproj", "{D7F92669-A624-46A5-A967-6DC47863F1A3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RocketEventsMod", "..\..\RocketModules\RocketEventsMod\RocketEventsMod.csproj", "{2098990C-697D-46CE-8541-B3B636FBAE21}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Comp All|Any CPU = Comp All|Any CPU
@@ -67,6 +69,16 @@ Global
 		{D7F92669-A624-46A5-A967-6DC47863F1A3}.Razor|Any CPU.ActiveCfg = Release|Any CPU
 		{D7F92669-A624-46A5-A967-6DC47863F1A3}.Razor|Any CPU.Build.0 = Release|Any CPU
 		{D7F92669-A624-46A5-A967-6DC47863F1A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2098990C-697D-46CE-8541-B3B636FBAE21}.Comp All|Any CPU.ActiveCfg = Debug|Any CPU
+		{2098990C-697D-46CE-8541-B3B636FBAE21}.Comp All|Any CPU.Build.0 = Debug|Any CPU
+		{2098990C-697D-46CE-8541-B3B636FBAE21}.CompAll|Any CPU.ActiveCfg = Debug|Any CPU
+		{2098990C-697D-46CE-8541-B3B636FBAE21}.CompAll|Any CPU.Build.0 = Debug|Any CPU
+		{2098990C-697D-46CE-8541-B3B636FBAE21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2098990C-697D-46CE-8541-B3B636FBAE21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2098990C-697D-46CE-8541-B3B636FBAE21}.Razor|Any CPU.ActiveCfg = Release|Any CPU
+		{2098990C-697D-46CE-8541-B3B636FBAE21}.Razor|Any CPU.Build.0 = Release|Any CPU
+		{2098990C-697D-46CE-8541-B3B636FBAE21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2098990C-697D-46CE-8541-B3B636FBAE21}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
