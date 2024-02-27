@@ -120,8 +120,8 @@
   <data name="autopublish.Text" xml:space="preserve">
     <value>Auto Publish</value>
   </data>
-  <data name="hidefuturedates.Text" xml:space="preserve">
-    <value>Hide Future Dates and Auto Publish</value>
+  <data name="autopublishoption.Text" xml:space="preserve">
+    <value>Auto Publish Option</value>
   </data>
   <data name="imageheightrss.Text" xml:space="preserve">
     <value>RSS image Height</value>

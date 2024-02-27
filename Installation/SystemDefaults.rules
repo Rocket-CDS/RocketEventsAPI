@@ -3,29 +3,22 @@
   <sqlfilter>
     <article>
 		<![CDATA[
+		{contains:searchtext}
 		and
 		(
-		(
-		isnull(articlename.GUIDKey,'') like '%{searchtext}%'
-		or isnull([XMLData].value('(genxml/textbox/articleref)[1]','nvarchar(max)'),'') like '%{searchtext}%'
-		or isnull([XMLData].value('(genxml/lang/genxml/textbox/articlekeywords)[1]','nvarchar(max)'),'') like '%{searchtext}%'
-		)
-		and
-		(
-		([XMLData].value('(genxml/textbox/publisheddate)[1]','date') >= convert(date,'{searchdate1}') or '{searchdate1}' = '')
-		and
-		([XMLData].value('(genxml/textbox/publisheddate)[1]','date') <= convert(date,'{searchdate2}') or '{searchdate2}' = '')
-		)
+			([XMLData].value('(genxml/textbox/eventstartdate)[1]','date') >= convert(date,'{searchdate1}') or '{searchdate1}' = '')
+			and
+			([XMLData].value('(genxml/textbox/eventstartdate)[1]','date') <= convert(date,'{searchdate2}') or '{searchdate2}' = '')
 		)
 		]]>
 	</article>    
   </sqlfilter>
   <sqlorderby>
-	  <product>
-		<publisheddate>
-			order by publisheddate.GUIDKey desc
-		</publisheddate>
-    </product>
+	<product>
+		<eventstartdate>
+			order by eventstartdate.GUIDKey desc
+		</eventstartdate>
+	</product>
   </sqlorderby>
 	<menuprovider>
 		<assembly>RocketDirectoryAPI</assembly>
