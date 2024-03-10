@@ -57,7 +57,7 @@ namespace RocketEventsAPI.Components
 
             return eventList;
         }
-        public static List<ArticleLimpet> GetEvents(int portalId, string cultureCode, DateTime startDate, DateTime endDate, int page = 0, int pagesize = 6, bool includeRecurring = true, int limit = 100)
+        public static EventListData GetEvents(int portalId, string cultureCode, DateTime startDate, DateTime endDate, int page = 0, int pagesize = 6, bool includeRecurring = true, int limit = 100)
         {
             List<ArticleLimpet> eventList = new List<ArticleLimpet>();
             var objCtrl = new DNNrocketController();
@@ -78,15 +78,14 @@ namespace RocketEventsAPI.Components
                 }
             }
 
-            var recurringList = GetRecurringEvents(portalId, cultureCode);
-            eventList.AddRange(recurringList);
-
-            var records = from ev in eventList.OrderBy(o => o.Info.GetXmlPropertyDate("genxml/textbox/eventstartdate") ) select ev;
-            if (page > 0)
+            if (includeRecurring)
             {
-                records = records.Skip((page - 1) * pagesize).Take(pagesize);
+                var recurringList = GetRecurringEvents(portalId, cultureCode);
+                eventList.AddRange(recurringList);
             }
-            return records.ToList();
+
+            var records = from ev in eventList.OrderBy(o => o.Info.GetXmlPropertyDate("genxml/textbox/eventstartdate")) select ev;
+            return new EventListData(records.ToList());
         }
 
     }
