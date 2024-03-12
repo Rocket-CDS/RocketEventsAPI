@@ -23,13 +23,23 @@ namespace RocketEventsAPI.Components
             base.AssigDataModel(sModel);
 
             // Display Month (from URL)
-            var numberOfMonths = sessionParams.GetInt("months");
-            var mDate = sessionParams.GetInt("month");
-            if (mDate == 0) mDate = DateTime.Now.Month;
             var yDate = sessionParams.GetInt("year");
-            if (yDate == 0) yDate = DateTime.Now.Year;
-            monthStartDate = new DateTime(yDate, mDate, 1, 0, 0, 0).Date;
-            monthEndDate = new DateTime(yDate, mDate, DateTime.DaysInMonth(yDate, mDate), 0, 0, 0).AddMonths(numberOfMonths).Date;
+            var mDate = sessionParams.GetInt("month");
+            if (mDate == 0)
+            {
+                var numberOfDays = sessionParams.GetInt("days");
+                if (numberOfDays == 0) numberOfDays = catalogSettings.Info.GetXmlPropertyInt("genxml/textbox/numberofdays");
+                if (numberOfDays == 0) numberOfDays = 14;
+                monthStartDate = DateTime.Now.Date;
+                var daysToEndOfMonth = DateTime.DaysInMonth(monthStartDate.Year, monthStartDate.Month) - monthStartDate.Day;
+                if (numberOfDays < daysToEndOfMonth) numberOfDays = daysToEndOfMonth; // always display to end of current month. 
+                monthEndDate = DateTime.Now.AddDays(numberOfDays).Date;
+            }
+            else
+            {
+                monthStartDate = new DateTime(yDate, mDate, 1, 0, 0, 0).Date;
+                monthEndDate = new DateTime(yDate, mDate, DateTime.DaysInMonth(yDate, mDate), 0, 0, 0).Date;
+            }
 
             // Event List Params
             listUrlParams = new string[] { "month", mDate.ToString(), "year", yDate.ToString() };
@@ -57,11 +67,11 @@ namespace RocketEventsAPI.Components
             // use return of "string", so we don;t get error with converting void to object.
             return "";
         }
-        public IEncodedString RssEventUrl(int portalId, string cmd, int monthDate, int yearDate, int numberOfMonths = 2)
+        public IEncodedString RssEventUrl(int portalId, string cmd, int monthDate, int yearDate, int numberOfDays = 60)
         {
-            if (numberOfMonths == 0) numberOfMonths = 2;
+            if (numberOfDays == 0) numberOfDays = 7;
             var portalData = new PortalLimpet(portalId);
-            var rssurl = portalData.EngineUrlWithProtocol + "/Desktopmodules/dnnrocket/api/rocket/action?cmd=" + cmd + "&month=" + monthDate + "&year=" + yearDate + "&months=" + numberOfMonths;
+            var rssurl = portalData.EngineUrlWithProtocol + "/Desktopmodules/dnnrocket/api/rocket/action?cmd=" + cmd + "&month=" + monthDate + "&year=" + yearDate + "&days=" + numberOfDays;
             return new RawString(rssurl);
         }
     }

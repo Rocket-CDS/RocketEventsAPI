@@ -42,6 +42,14 @@ namespace RocketEventsAPI.Components
                     var eventDays = (eventendDate - eventDate).TotalDays;
                     if (!"DWMY".Contains(eventType)) eventType = "Y";
 
+                    if (eventDate < DateTime.Now.AddYears(-1))
+                    {
+                        // move the event date so we have a rolling event.  To prevent problems with the size of the array.
+                        ev1.Info.SetXmlProperty("genxml/textbox/eventstartdate", eventDate.AddYears(1).ToString("O"), TypeCode.DateTime);
+                        ev1.Info.SetXmlProperty("genxml/textbox/eventenddate", eventendDate.AddYears(1).ToString("O"), TypeCode.DateTime);
+                        ev1.Update();
+                    }
+
                     var eventLoopDate = eventDate;
                     if (eventLoopDate < DateTime.Now.AddYears(-1)) eventLoopDate = DateTime.Now.AddYears(-1); // add limit of 1 year history
 
@@ -79,7 +87,7 @@ namespace RocketEventsAPI.Components
         /// <param name="limit">Limt Event return list</param>
         /// <param name="historyMonths">If the event is in the past, only return the last historyMonths.</param>
         /// <returns></returns>
-        public static EventListData GetEvents(int portalId, string cultureCode, DateTime startDate, DateTime endDate, bool includeRecurring = true, int limit = 100)
+        public static EventListData GetEvents(int portalId, string cultureCode, DateTime startDate, DateTime endDate, bool includeRecurring = true, int limit = 100, bool reverseOrderBy = false)
         {
             List<ArticleLimpet> eventList = new List<ArticleLimpet>();
             var objCtrl = new DNNrocketController();
@@ -107,7 +115,10 @@ namespace RocketEventsAPI.Components
             }
 
             var records = from ev in eventList.OrderBy(o => o.Info.GetXmlPropertyDate("genxml/textbox/eventstartdate")) select ev;
-            return new EventListData(records.ToList());
+            if (reverseOrderBy)
+                return new EventListData(records.Reverse().ToList());
+            else
+                return new EventListData(records.ToList());
         }
         public static bool IsEventON(ArticleLimpet articleData, DateTime checkDate)
         {
