@@ -1,0 +1,68 @@
+﻿@inherits RocketDirectoryAPI.Components.RocketDirectoryAPITokens<Simplisity.SimplisityRazor>
+@using DNNrocketAPI.Components;
+@AssigDataModel(Model)
+<!--inject-->
+@{
+    var rowcount = sessionParams.RowCount;
+    var page = sessionParams.Page;
+    var pagesize = sessionParams.PageSize;
+    var pagechapter = 5;
+    var lastpage = 0;
+
+    var r = (page - 1) / pagechapter;
+    var BeginPage = 0;
+    var EndPage = 0;
+
+    if (pagesize > 0)
+    {
+        lastpage = System.Convert.ToInt32(rowcount / pagesize);
+        if (rowcount % pagesize > 0)
+        {
+            lastpage += 1;
+        }
+        BeginPage = pagechapter * r + 1;
+        EndPage = Math.Min(pagechapter * (r + 1), lastpage);
+    }
+}
+
+@if (pagesize > 0 && lastpage > 1)
+{
+
+    <div class="w3-center w3-margin">
+        <div class="w3-bar">
+            @if (BeginPage != 1)
+            {
+                <a href="@ListUrl(moduleData.ListPageTabId(), categoryData, listUrlParams.Concat(new string[] { "page", "1" }).ToArray())" class="w3-button w3-hover-grey" onclick="$('.simplisity_loader').show()">|❮</a>
+                if (page >= 6)
+                {
+                    <a href="@ListUrl(moduleData.ListPageTabId(), categoryData, listUrlParams.Concat(new string[] { "page", (BeginPage - 1).ToString() }).ToArray())" class="w3-button w3-hover-grey" onclick="$('.simplisity_loader').show()">..</a>
+                }
+            }
+
+            @for (int i = BeginPage; i < (EndPage + 1); i++)
+            {
+                var selected = "";
+                if (i == page)
+                {
+                    selected = "w3-grey";
+                }
+                if (i <= lastpage)
+                {
+                    <a href="@ListUrl(moduleData.ListPageTabId(), categoryData, listUrlParams.Concat(new string[] { "page", i.ToString() }).ToArray())" class="w3-button w3-hover-grey @(selected)" onclick="$('.simplisity_loader').show()">@(i)</a>
+                }
+            }
+
+            @if (page < lastpage)
+            {
+
+                if (EndPage != lastpage)
+                {
+                    <a href="@ListUrl(moduleData.ListPageTabId(), categoryData, listUrlParams.Concat(new string[] { "page", (EndPage + 1).ToString() }).ToArray())" class="w3-button w3-hover-grey" onclick="$('.simplisity_loader').show()">..</a>
+                }
+                <a href="@ListUrl(moduleData.ListPageTabId(), categoryData, listUrlParams.Concat(new string[] { "page", lastpage.ToString() }).ToArray())" class="w3-button w3-hover-grey" onclick="$('.simplisity_loader').show()">❯|</a>
+            }
+
+        </div>
+    </div>
+
+}

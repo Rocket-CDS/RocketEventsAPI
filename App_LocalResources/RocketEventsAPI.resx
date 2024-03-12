@@ -183,9 +183,6 @@
   <data name="replies.Text" xml:space="preserve">
     <value>Replies</value>
   </data>
-  <data name="rssimage.Text" xml:space="preserve">
-    <value>Include Image in RSS feed</value>
-  </data>
   <data name="turnoffcomments.Text" xml:space="preserve">
     <value>Turn Off Comments</value>
   </data>

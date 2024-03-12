@@ -23,12 +23,13 @@ namespace RocketEventsAPI.Components
             base.AssigDataModel(sModel);
 
             // Display Month (from URL)
+            var numberOfMonths = sessionParams.GetInt("months");
             var mDate = sessionParams.GetInt("month");
             if (mDate == 0) mDate = DateTime.Now.Month;
             var yDate = sessionParams.GetInt("year");
-            if (yDate == 0) yDate = DateTime.Now.Year;           
+            if (yDate == 0) yDate = DateTime.Now.Year;
             monthStartDate = new DateTime(yDate, mDate, 1, 0, 0, 0).Date;
-            monthEndDate = new DateTime(yDate, mDate, DateTime.DaysInMonth(yDate, mDate), 0, 0, 0).Date;
+            monthEndDate = new DateTime(yDate, mDate, DateTime.DaysInMonth(yDate, mDate), 0, 0, 0).AddMonths(numberOfMonths).Date;
 
             // Event List Params
             listUrlParams = new string[] { "month", mDate.ToString(), "year", yDate.ToString() };
@@ -55,6 +56,13 @@ namespace RocketEventsAPI.Components
 
             // use return of "string", so we don;t get error with converting void to object.
             return "";
+        }
+        public IEncodedString RssEventUrl(int portalId, string cmd, int monthDate, int yearDate, int numberOfMonths = 2)
+        {
+            if (numberOfMonths == 0) numberOfMonths = 2;
+            var portalData = new PortalLimpet(portalId);
+            var rssurl = portalData.EngineUrlWithProtocol + "/Desktopmodules/dnnrocket/api/rocket/action?cmd=" + cmd + "&month=" + monthDate + "&year=" + yearDate + "&months=" + numberOfMonths;
+            return new RawString(rssurl);
         }
     }
 }
