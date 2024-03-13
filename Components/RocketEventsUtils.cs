@@ -1,4 +1,5 @@
 ﻿using DNNrocketAPI;
+using DNNrocketAPI.Components;
 using RocketDirectoryAPI.Components;
 using Simplisity;
 using System;
@@ -68,7 +69,7 @@ namespace RocketEventsAPI.Components
                             ev.Info.SetXmlProperty("genxml/textbox/eventenddate", eventLoopDate.AddDays(eventDays).ToString("O"), TypeCode.DateTime);
                             eventList.Add(ev);
                             lp += 1;
-                            if (lp == 100) break; // jump out after 100 created.
+                            if (lp == 1000) break; // jump out after 1000 created.
                         }
                     }
                 }
@@ -89,6 +90,11 @@ namespace RocketEventsAPI.Components
         /// <returns></returns>
         public static EventListData GetEvents(int portalId, string cultureCode, DateTime startDate, DateTime endDate, bool includeRecurring = true, int limit = 100, bool reverseOrderBy = false)
         {
+            var systemKey = "rocketeventsapi";
+            var cacheKey = "GetEvents" + systemKey + portalId + cultureCode + startDate.Date.ToString("O") + endDate.Date.ToString("O") + includeRecurring + limit + reverseOrderBy;
+            var rtn = (EventListData)CacheUtils.GetCache(cacheKey, systemKey + portalId);
+            if (rtn != null) return rtn;
+
             List<ArticleLimpet> eventList = new List<ArticleLimpet>();
             var objCtrl = new DNNrocketController();
             
@@ -104,7 +110,7 @@ namespace RocketEventsAPI.Components
                 foreach (SimplisityRecord x in xmlList)
                 {
                     var i = x.GetXmlPropertyInt("row/@ItemId");
-                    eventList.Add(new ArticleLimpet(portalId, Convert.ToInt32(i), cultureCode, "rocketeventsapi"));
+                    eventList.Add(new ArticleLimpet(portalId, Convert.ToInt32(i), cultureCode, systemKey));
                 }
             }
 
@@ -116,16 +122,24 @@ namespace RocketEventsAPI.Components
 
             var records = from ev in eventList.OrderBy(o => o.Info.GetXmlPropertyDate("genxml/textbox/eventstartdate")) select ev;
             if (reverseOrderBy)
-                return new EventListData(records.Reverse().ToList());
+                rtn = new EventListData(records.Reverse().ToList());
             else
-                return new EventListData(records.ToList());
+                rtn = new EventListData(records.ToList());
+
+            CacheUtils.SetCache(cacheKey, rtn, systemKey + portalId);
+            return rtn;
         }
         public static Dictionary<DateTime, List<ArticleLimpet>> GetArticlesByMonth(int portalId, string cultureCode, DateTime startMonthDate, int numberOfMonths, bool useCache = true)
         {
-            var rtn = new Dictionary<DateTime, List<ArticleLimpet>>();
+            var systemKey = "rocketeventsapi";
+            var cacheKey = "GetArticlesByMonth" + systemKey + portalId + cultureCode + startMonthDate.Date.ToString("O") + numberOfMonths;
+            var rtn = (Dictionary<DateTime, List<ArticleLimpet>>)CacheUtils.GetCache(cacheKey, systemKey + portalId);
+            if (rtn != null && useCache) return rtn;
+
+            rtn = new Dictionary<DateTime, List<ArticleLimpet>>();
             DateTime rDateStart = new DateTime(startMonthDate.Year, startMonthDate.Month, 1, 0, 0, 0).Date;
             DateTime rDateEnd = new DateTime(startMonthDate.AddMonths(numberOfMonths).Year, startMonthDate.AddMonths(numberOfMonths).Month, DateTime.DaysInMonth(startMonthDate.AddMonths(numberOfMonths).Year, startMonthDate.AddMonths(numberOfMonths).Month), 0, 0, 0).Date;
-            var eData = GetEvents(portalId, cultureCode, rDateStart, rDateEnd);
+            var eData = GetEvents(portalId, cultureCode, rDateStart, rDateEnd,true,1000);
             var lp = 0;
             while (lp < numberOfMonths)
             {
@@ -135,6 +149,7 @@ namespace RocketEventsAPI.Components
                 rtn.Add(mDate, eData.GetEventsInMonth(loopDate.Year, loopDate.Month));
                 lp += 1;
             }
+            CacheUtils.SetCache(cacheKey, rtn, systemKey + portalId);
             return rtn;
         }
 
