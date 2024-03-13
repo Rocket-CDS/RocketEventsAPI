@@ -27,62 +27,6 @@
 
   <providerdata list="true">
 
-    <genxml>
-      <textbox>
-        <interfacekey>scheduler</interfacekey>
-        <namespaceclass>RocketEventsAPI.Components.Scheduler</namespaceclass>
-        <assembly>RocketEventsAPI</assembly>
-        <interfaceicon></interfaceicon>
-        <defaultcommand></defaultcommand>
-        <relpath>/DesktopModules/DNNrocketModules/RocketEventsAPI</relpath>
-      </textbox>
-      <providertype>scheduler</providertype>
-      <dropdownlist>
-        <group></group>
-      </dropdownlist>
-      <checkbox>
-        <onmenu>false</onmenu>
-        <active>true</active>
-      </checkbox>
-      <radio>
-        <securityrolesadministrators>1</securityrolesadministrators>
-        <securityrolesmanager>0</securityrolesmanager>
-        <securityroleseditor>0</securityroleseditor>
-        <securityrolesclienteditor>0</securityrolesclienteditor>
-        <securityrolesregisteredusers>0</securityrolesregisteredusers>
-        <securityrolessubscribers>0</securityrolessubscribers>
-        <securityrolesall>0</securityrolesall>
-      </radio>
-    </genxml>
-
-	  <genxml>
-		  <textbox>
-			  <interfacekey>events</interfacekey>
-			  <namespaceclass>RocketEventsAPI.Components.Events</namespaceclass>
-			  <assembly>RocketEventsAPI</assembly>
-			  <interfaceicon></interfaceicon>
-			  <defaultcommand></defaultcommand>
-			  <relpath>/DesktopModules/DNNrocketModules/RocketEventsAPI</relpath>
-		  </textbox>
-		  <providertype>eventprovider</providertype>
-		  <dropdownlist>
-			  <group></group>
-		  </dropdownlist>
-		  <checkbox>
-			  <onmenu>false</onmenu>
-			  <active>true</active>
-		  </checkbox>
-		  <radio>
-			  <securityrolesadministrators>1</securityrolesadministrators>
-			  <securityrolesmanager>0</securityrolesmanager>
-			  <securityroleseditor>0</securityroleseditor>
-			  <securityrolesclienteditor>0</securityrolesclienteditor>
-			  <securityrolesregisteredusers>0</securityrolesregisteredusers>
-			  <securityrolessubscribers>0</securityrolessubscribers>
-			  <securityrolesall>0</securityrolesall>
-		  </radio>
-	  </genxml>
-
 	  <genxml>
 		  <textbox>
 			  <interfacekey>exportmodule</interfacekey>

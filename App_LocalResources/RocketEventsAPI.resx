@@ -165,6 +165,9 @@
   <data name="monthly.Text" xml:space="preserve">
     <value>Monthly</value>
   </data>
+  <data name="numberofdays.Text" xml:space="preserve">
+    <value>Number of future days to show on first load.</value>
+  </data>
   <data name="postcomments.Text" xml:space="preserve">
     <value>Post Comments</value>
   </data>
@@ -182,6 +185,9 @@
   </data>
   <data name="replies.Text" xml:space="preserve">
     <value>Replies</value>
+  </data>
+  <data name="reverseorderby.Text" xml:space="preserve">
+    <value>OrderBy descending event date</value>
   </data>
   <data name="turnoffcomments.Text" xml:space="preserve">
     <value>Turn Off Comments</value>

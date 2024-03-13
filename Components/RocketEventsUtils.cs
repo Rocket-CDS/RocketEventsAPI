@@ -120,6 +120,24 @@ namespace RocketEventsAPI.Components
             else
                 return new EventListData(records.ToList());
         }
+        public static Dictionary<DateTime, List<ArticleLimpet>> GetArticlesByMonth(int portalId, string cultureCode, DateTime startMonthDate, int numberOfMonths, bool useCache = true)
+        {
+            var rtn = new Dictionary<DateTime, List<ArticleLimpet>>();
+            DateTime rDateStart = new DateTime(startMonthDate.Year, startMonthDate.Month, 1, 0, 0, 0).Date;
+            DateTime rDateEnd = new DateTime(startMonthDate.AddMonths(numberOfMonths).Year, startMonthDate.AddMonths(numberOfMonths).Month, DateTime.DaysInMonth(startMonthDate.AddMonths(numberOfMonths).Year, startMonthDate.AddMonths(numberOfMonths).Month), 0, 0, 0).Date;
+            var eData = GetEvents(portalId, cultureCode, rDateStart, rDateEnd);
+            var lp = 0;
+            while (lp < numberOfMonths)
+            {
+                var loopDate = startMonthDate.AddMonths(lp);
+                DateTime mDate = new DateTime(loopDate.Year, loopDate.Month, 1, 0, 0, 0).Date;
+                DateTime mDateEnd = new DateTime(loopDate.Year, loopDate.Month, DateTime.DaysInMonth(loopDate.Year, loopDate.Month) , 0, 0, 0).Date;
+                rtn.Add(mDate, eData.GetEventsInMonth(loopDate.Year, loopDate.Month));
+                lp += 1;
+            }
+            return rtn;
+        }
+
         public static bool IsEventON(ArticleLimpet articleData, DateTime checkDate)
         {
             var eventStartDate = articleData.Info.GetXmlPropertyDate("genxml/textbox/eventstartdate").Date;

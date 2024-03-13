@@ -10,5 +10,9 @@
     var info = catalogSettings.Info;
 }
 <div class="w3-row w3-padding">
-    @CheckBox(info, "genxml/checkbox/autopublishoption", "&nbsp;" + ResourceKey("RocketEventsApi.autopublishoption").ToString(), " class='w3-check'", true)
+    @CheckBox(info, "genxml/checkbox/reverseorderby", "&nbsp;" + ResourceKey("RocketEventsApi.reverseorderby").ToString(), " class='w3-check'", false)
+</div>
+<div class="w3-row w3-padding">
+    <label>@ResourceKey("RocketEventsApi.numberofdays")</label>
+    @TextBox(info, "genxml/textbox/numberofdays", " class='w3-input w3-border'", "14",false,0,"","number")
 </div>
