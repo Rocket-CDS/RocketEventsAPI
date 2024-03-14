@@ -169,7 +169,16 @@
     <value>No Events </value>
   </data>
   <data name="numberofdays.Text" xml:space="preserve">
-    <value>Number of future days to show on first load.</value>
+    <value>Number of future days for list on first load.</value>
+  </data>
+  <data name="numberofhistorydays.Text" xml:space="preserve">
+    <value>Number of history days for list on first load</value>
+  </data>
+  <data name="numberofhistorymonths.Text" xml:space="preserve">
+    <value>Number of history months</value>
+  </data>
+  <data name="numberofmonths.Text" xml:space="preserve">
+    <value>Number of future months</value>
   </data>
   <data name="postcomments.Text" xml:space="preserve">
     <value>Post Comments</value>
