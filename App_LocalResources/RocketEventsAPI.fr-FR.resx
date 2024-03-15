@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -120,103 +120,58 @@
   <data name="addcomment.Text" xml:space="preserve">
     <value>Add Comment</value>
   </data>
-  <data name="alldayevent.Text" xml:space="preserve">
-    <value>All Day Event</value>
-  </data>
-  <data name="autopublish.Text" xml:space="preserve">
-    <value>Auto Publish</value>
-  </data>
-  <data name="autopublishoption.Text" xml:space="preserve">
-    <value>Auto Publish Option</value>
-  </data>
   <data name="comment.Text" xml:space="preserve">
     <value>Comment</value>
   </data>
   <data name="comments.Text" xml:space="preserve">
     <value>Comments</value>
   </data>
-  <data name="daily.Text" xml:space="preserve">
-    <value>Daily</value>
-  </data>
-  <data name="eventenddate.Text" xml:space="preserve">
-    <value>Event End Date</value>
-  </data>
-  <data name="eventendtime.Text" xml:space="preserve">
-    <value>Event End Time</value>
-  </data>
-  <data name="eventstartdate.Text" xml:space="preserve">
-    <value>Event Start Date</value>
-  </data>
-  <data name="eventstarttime.Text" xml:space="preserve">
-    <value>Event Start Time</value>
-  </data>
-  <data name="eventtype.Text" xml:space="preserve">
-    <value>Event Type</value>
-  </data>
-  <data name="imageheightrss.Text" xml:space="preserve">
-    <value>RSS image Height</value>
-  </data>
-  <data name="imagewidthrss.Text" xml:space="preserve">
-    <value>RSS image Width</value>
-  </data>
   <data name="like.Text" xml:space="preserve">
     <value>Like</value>
   </data>
-  <data name="monthly.Text" xml:space="preserve">
-    <value>Monthly</value>
-  </data>
-  <data name="nextcount.Text" xml:space="preserve">
-    <value>Number of next events to display</value>
-  </data>
-  <data name="noresults.Text" xml:space="preserve">
-    <value>No Events </value>
-  </data>
-  <data name="numberofdays.Text" xml:space="preserve">
-    <value>Number of future days for list on first load.</value>
-  </data>
-  <data name="numberofhistorydays.Text" xml:space="preserve">
-    <value>Number of history days for list on first load</value>
-  </data>
-  <data name="numberofhistorymonths.Text" xml:space="preserve">
-    <value>Number of history months</value>
-  </data>
-  <data name="numberofmonths.Text" xml:space="preserve">
-    <value>Number of future months</value>
-  </data>
   <data name="postcomments.Text" xml:space="preserve">
     <value>Post Comments</value>
-  </data>
-  <data name="publisheddate.Text" xml:space="preserve">
-    <value>Published Date</value>
   </data>
   <data name="rating.Text" xml:space="preserve">
     <value>Rating</value>
   </data>
   <data name="readmore.Text" xml:space="preserve">
-    <value>Read More</value>
-  </data>
-  <data name="recurringevent.Text" xml:space="preserve">
-    <value>Recurring Event</value>
-  </data>
-  <data name="recurringevery.Text" xml:space="preserve">
-    <value>Recurring Every</value>
+    <value>Lire la suite</value>
   </data>
   <data name="replies.Text" xml:space="preserve">
-    <value>Replies</value>
-  </data>
-  <data name="reverseorderby.Text" xml:space="preserve">
-    <value>OrderBy descending event date</value>
+    <value>Réponses</value>
   </data>
   <data name="turnoffcomments.Text" xml:space="preserve">
-    <value>Turn Off Comments</value>
+    <value>Désactiver les commentaires</value>
   </data>
-  <data name="untildate.Text" xml:space="preserve">
-    <value>Until Date</value>
+  <data name="noresults.Text" xml:space="preserve">
+    <value>Aucun résultat</value>
   </data>
-  <data name="weekly.Text" xml:space="preserve">
-    <value>Weekly</value>
+  <data name="back.Text" xml:space="preserve">
+    <value>Retour</value>
   </data>
-  <data name="yearly.Text" xml:space="preserve">
-    <value>Yearly</value>
+  <data name="allevents.Text" xml:space="preserve">
+    <value>Tout l'agenda</value>
+  </data>
+  <data name="events.Text" xml:space="preserve">
+    <value>Agenda</value>
+  </data>
+  <data name="tags.Text" xml:space="preserve">
+    <value>Tags</value>
+  </data>
+  <data name="eventenddate.Text" xml:space="preserve">
+    <value>Date de fin</value>
+  </data>
+  <data name="eventendtime.Text" xml:space="preserve">
+    <value>Heure</value>
+  </data>
+  <data name="eventstartdate.Text" xml:space="preserve">
+    <value>Date de début</value>
+  </data>
+  <data name="eventstarttime.Text" xml:space="preserve">
+    <value>Heure</value>
+  </data>
+  <data name="eventdate.Text" xml:space="preserve">
+    <value>Date de l'évènement</value>
   </data>
 </root>

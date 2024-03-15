@@ -1,14 +1,10 @@
-@inherits RocketDirectoryAPI.Components.RocketDirectoryAPITokens<Simplisity.SimplisityRazor>
+@inherits RocketEventsAPI.Components.RocketEventsAPITokens<Simplisity.SimplisityRazor>
 @using DNNrocketAPI.Components;
 @using RocketDirectoryAPI.Components;
 @AssigDataModel(Model)
 @AddProcessDataResx(appTheme, true)
 <!--inject-->
-@AddProcessData("resourcepath", "/DesktopModules/DNNrocketModules/RocketEventsAPI/App_LocalResources/")
 
 @{
     var info = catalogSettings.Info;
 }
-<div class="w3-row w3-padding">
-    @CheckBox(info, "genxml/checkbox/hidefuturedates", "&nbsp;" + ResourceKey("RocketBlogApi.hidefuturedates").ToString(), " class='w3-check'",true)
-</div>

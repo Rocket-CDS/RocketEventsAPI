@@ -23,35 +23,51 @@ namespace RocketEventsAPI.Components
                     if (portalid == 0) portalid = PortalUtils.GetCurrentPortalId();
                     var cultureCode = DNNrocketUtils.GetCurrentCulture();
                     var articleData = new ArticleLimpet(portalid, articleId, cultureCode, systemData.SystemKey);
-                    if (articleData.Exists)
+
+                    // Delete any existing recurring children in DB
+                    RocketEventsUtils.RemoveRecurringEvents(articleData);
+
+                    if (articleData.Exists && articleData.Info.GetXmlPropertyBool("genxml/checkbox/recurringevent"))
                     {
-                        var catalogSettings = new CatalogSettingsLimpet(portalid, cultureCode, systemData.SystemKey);
-                        if (catalogSettings.Info.GetXmlPropertyBool("genxml/checkbox/hidefuturedates"))
+                        var untilDate = articleData.Info.GetXmlPropertyDate("genxml/textbox/untildate").Date;
+                        var eventDate = articleData.Info.GetXmlPropertyDate("genxml/textbox/eventstartdate");
+                        var eventendDate = articleData.Info.GetXmlPropertyDate("genxml/textbox/eventenddate");
+                        var eventType = articleData.Info.GetXmlProperty("genxml/select/eventtype");
+                        if (eventType == "") eventType = "M";
+                        var recurringevery = articleData.Info.GetXmlPropertyInt("genxml/textbox/recurringevery");
+                        var eventDays = (eventendDate - eventDate).TotalDays;
+
+                        var eventLoopDate = eventDate;
+                        if (eventType == "W") eventLoopDate = eventLoopDate.AddDays(recurringevery * 7);
+                        if (eventType == "M") eventLoopDate = eventLoopDate.AddMonths(recurringevery);
+
+                        var lp = 0;
+                        while (eventLoopDate <= untilDate)
                         {
-                            // Hide any future articles.  (The scheudler will display them on the correct date)
-                            if (articleData.Info.GetXmlPropertyDate("genxml/textbox/publisheddate").Date > DateTime.Now.Date)
-                            {
-                                if (articleData.Info.GetXmlPropertyBool("genxml/checkbox/autopublish"))
-                                {
-                                    articleData.Info.SetXmlProperty("genxml/checkbox/hidden", "true");
-                                    articleData.Update();
+                            var evCloneInfo = (SimplisityInfo)articleData.Info.CloneInfo();
+                            var ev = new ArticleLimpet(evCloneInfo);
+                            ev.Info.ItemID = -1;
+                            ev.Info.ModuleId = -1;
+                            ev.Info.XrefItemId = 0;                            
+                            ev.ParentItemId = articleData.ArticleId;
+                            ev.Info.SetXmlProperty("genxml/textbox/eventstartdate", eventLoopDate.ToString("O"), TypeCode.DateTime);
+                            ev.Info.SetXmlProperty("genxml/textbox/eventenddate", eventLoopDate.AddDays(eventDays).ToString("O"), TypeCode.DateTime);
+                            ev.Update();
 
-                                    var sessionParams = new SessionParams(paramInfo);
-                                    var strOut = "";
-                                    var dataObject = new DataObjectLimpet(portalid, sessionParams.ModuleRef, sessionParams, systemData.SystemKey);
+                            if (eventType == "W") eventLoopDate = eventLoopDate.AddDays(recurringevery * 7);
+                            if (eventType == "M") eventLoopDate = eventLoopDate.AddMonths(recurringevery);
 
-                                    dataObject.SetDataObject("articledata", articleData);
-
-                                    var razorTempl = dataObject.AppTheme.GetTemplate("admindetail.cshtml");
-                                    var pr = RenderRazorUtils.RazorProcessData(razorTempl, articleData, dataObject.DataObjects, dataObject.Settings, sessionParams, true);
-                                    if (pr.ErrorMsg != "")
-                                        strOut = pr.ErrorMsg;
-                                    else
-                                        strOut = pr.RenderedText;
-                                    rtn.Add("outputhtml", strOut);
-                                }
-                            }
+                            lp += 1;
+                            if (lp == 200) break; // jump out after 200 created.
                         }
+                        articleData.Info.SetXmlProperty("genxml/textbox/untildate", eventLoopDate.ToString("O"), TypeCode.DateTime);
+                        articleData.XrefItemId = 1; // flag for base recurring
+                        articleData.Update();
+                    } 
+                    else
+                    {
+                        articleData.XrefItemId = -1; // flag for base recurring
+                        articleData.Update();
                     }
                 }
             }

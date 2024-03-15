@@ -1,0 +1,98 @@
+@inherits RocketEventsAPI.Components.RocketEventsAPITokens<Simplisity.SimplisityRazor>
+@using DNNrocketAPI.Components;
+@using RocketDirectoryAPI.Components;
+@AssigDataModel(Model)
+@AddProcessDataResx(appTheme, true)
+<!--inject-->
+@{
+    DateTime today = DateTime.Today;
+    var todayString = today.ToString("O");
+}
+<div class="w3-row">
+    <div class='w3-row'>
+        <div class="w3-quarter w3-padding">
+            <label>@ResourceKey("RC.ref")</label>
+            @TextBox(info, articleData.RefXPath, " class='w3-input w3-border' autocomplete='off' ", "", false, 0)
+        </div>
+        <div class="w3-quarter w3-padding">
+            <br />
+            @CheckBox(info, articleData.HiddenXPath, "&nbsp;" + ResourceKey("DNNrocket.hidden"), " class='w3-check' ")
+        </div>
+    </div>
+    <div class='w3-row'>
+        <div class="w3-half w3-padding">
+            @CheckBox(info, "genxml/checkbox/alldayevent", "&nbsp;" + ResourceKey("RocketEventsApi.alldayevent"), " class='w3-check' ", false)
+            <div class='w3-row'>
+                <div class="w3-half w3-padding">
+                    <label>@ResourceKey("RocketEventsApi.eventstartdate")</label><br />
+                    @TextBoxDate(info, "genxml/textbox/eventstartdate", " class='w3-input w3-border' autocomplete='off'", todayString, false, 0)
+                    <label>@ResourceKey("RocketEventsApi.eventenddate")</label><br />
+                    @TextBoxDate(info, "genxml/textbox/eventenddate", " class='w3-input w3-border' autocomplete='off'", todayString, false, 0)
+                </div>
+                <div class="w3-half w3-padding timedisplay">
+                    <label>@ResourceKey("RocketEventsApi.eventstarttime")</label><br />
+                    @TextBox(info, "genxml/textbox/eventstarttime", " class='w3-input w3-border ' autocomplete='off'", "", false, 0, "", "time")
+                    <label>@ResourceKey("RocketEventsApi.eventendtime")</label><br />
+                    @TextBox(info, "genxml/textbox/eventendtime", " class='w3-input w3-border ' autocomplete='off'", "", false, 0, "", "time")
+                </div>
+            </div>
+        </div>
+        <div class="w3-half w3-padding">
+            @CheckBox(info, "genxml/checkbox/recurringevent", "&nbsp;" + ResourceKey("RocketEventsApi.recurringevent"), " class='w3-check' ", false)
+            <div class='w3-row'>
+                @{
+                    var eventtypeText = ResourceKey("RocketEventsApi.weekly").ToString() + "," + ResourceKey("RocketEventsApi.monthly").ToString();
+                }
+                <div class='w3-row w3-padding recurringeventdisplay'>
+                    <label>@ResourceKey("RocketEventsApi.eventtype")</label><br />
+                    @RadioButtonList(info, "genxml/select/eventtype", "W,M", eventtypeText, " class='w3-input w3-border' ","M")
+                    <label>@ResourceKey("RocketEventsApi.recurringevery")</label><br />
+                    @TextBox(info, "genxml/textbox/recurringevery", " class='w3-input w3-border' autocomplete='off'", "1", false, 0)
+                    <label>@ResourceKey("RocketEventsApi.untildate")</label><br />
+                    @TextBoxDate(info, "genxml/textbox/untildate", " class='w3-input w3-border' autocomplete='off'", todayString, false, 0)
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class=" w3-row w3-padding">
+        <label>@ResourceKey("RC.name")</label>&nbsp;@EditFlag(sessionParams)
+        @TextBox(info, articleData.NameXPath, " class='w3-input w3-border' autocomplete='off' ", "", true, 0)
+    </div>
+    <div class=" w3-row w3-padding">
+        <label>@ResourceKey("DNNrocket.summary")</label>&nbsp;@EditFlag(sessionParams)
+        @TextArea(info, articleData.SummaryXPath, " class='w3-input w3-border' rows='8' autocomplete='off' ", "", true, 0)
+    </div>
+    <div class=" w3-row w3-padding">
+        <label>@ResourceKey("DNNrocket.description")</label>&nbsp;@EditFlag(sessionParams)
+        @CKEditor4(info, articleData.RichTextXPath, true)
+    </div>
+    <div class=" w3-row w3-padding">
+        @RenderTemplate("AdminExtra.cshtml", appTheme, Model, true)
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+
+        if ($('#alldayevent').prop("checked")) {
+            $(".timedisplay").hide();
+        } else {
+            $(".timedisplay").show();
+        }
+        if ($('#recurringevent').prop("checked")) {
+            $(".recurringeventdisplay").show();
+        } else {
+            $(".recurringeventdisplay").hide();
+        }
+        $("#alldayevent").on("change", function () {
+            $(".timedisplay").toggle();
+        });
+        $("#recurringevent").on("change", function () {
+            $(".recurringeventdisplay").toggle();
+        });
+        
+    });
+
+    
+
+</script>

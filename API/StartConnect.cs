@@ -14,6 +14,8 @@ namespace RocketEventsAPI.API
     {
         public Dictionary<string, object> ProcessCommand(string paramCmd, SimplisityInfo systemInfo, SimplisityInfo interfaceInfo, SimplisityInfo postInfo, SimplisityInfo paramInfo, string langRequired = "")
         {
+            paramInfo.SetXmlProperty("genxml/settings/sqladminfilter", " and [R1].ParentItemId <= 0 "); // special filter for admin (must be in "genxml/settings/")
+
             paramCmd = paramCmd.Replace("rocketeventsapi_", "rocketdirectoryapi_");
             systemInfo.SetXmlProperty("genxml/systemkey", "rocketeventsapi");
             var catalogStartConnect = new RocketDirectoryAPI.API.StartConnect();
