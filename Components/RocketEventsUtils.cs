@@ -117,7 +117,7 @@ namespace RocketEventsAPI.Components
                     {
                         if (IsEventON(ev, dayDate)) dayList.Add(ev);
                     }
-                    eventListRtn.Add(lp, dayList);
+                    if (dayList.Count > 0) eventListRtn.Add(lp, dayList);
                     lp += 1;
                 }
             }
