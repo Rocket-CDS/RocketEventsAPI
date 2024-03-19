@@ -78,11 +78,10 @@ namespace RocketEventsAPI.Components
 
             return "";
         }
-        public IEncodedString RssEventUrl(int portalId, string cmd, int monthDate, int yearDate, int numberOfDays = 60)
+        public IEncodedString RssEventUrl(int portalId, string cmd, int monthDate, int yearDate)
         {
-            if (numberOfDays == 0) numberOfDays = 7;
             var portalData = new PortalLimpet(portalId);
-            var rssurl = portalData.EngineUrlWithProtocol + "/Desktopmodules/dnnrocket/api/rocket/action?cmd=" + cmd + "&month=" + monthDate + "&year=" + yearDate + "&days=" + numberOfDays;
+            var rssurl = portalData.EngineUrlWithProtocol + "/Desktopmodules/dnnrocket/api/rocket/action?cmd=" + cmd + "&month=" + monthDate + "&year=" + yearDate + "&months=1&sqlidx=eventstartdate";
             return new RawString(rssurl);
         }
         /// <summary>
