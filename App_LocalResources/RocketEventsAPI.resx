@@ -138,6 +138,9 @@
   <data name="daily.Text" xml:space="preserve">
     <value>Daily</value>
   </data>
+  <data name="eventdate.Text" xml:space="preserve">
+    <value>Event Date</value>
+  </data>
   <data name="eventenddate.Text" xml:space="preserve">
     <value>Event End Date</value>
   </data>
