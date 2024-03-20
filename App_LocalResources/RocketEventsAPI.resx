@@ -123,6 +123,9 @@
   <data name="alldayevent.Text" xml:space="preserve">
     <value>All Day Event</value>
   </data>
+  <data name="allevents.Text" xml:space="preserve">
+    <value>All Events</value>
+  </data>
   <data name="autopublish.Text" xml:space="preserve">
     <value>Auto Publish</value>
   </data>
@@ -146,6 +149,9 @@
   </data>
   <data name="eventendtime.Text" xml:space="preserve">
     <value>Event End Time</value>
+  </data>
+  <data name="events.Text" xml:space="preserve">
+    <value>Events</value>
   </data>
   <data name="eventstartdate.Text" xml:space="preserve">
     <value>Event Start Date</value>
