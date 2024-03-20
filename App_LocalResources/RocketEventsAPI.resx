@@ -168,6 +168,9 @@
   <data name="monthly.Text" xml:space="preserve">
     <value>Monthly</value>
   </data>
+  <data name="nextcount.Text" xml:space="preserve">
+    <value>Number of next events to display</value>
+  </data>
   <data name="noresults.Text" xml:space="preserve">
     <value>No Events </value>
   </data>
@@ -197,6 +200,9 @@
   </data>
   <data name="recurringevent.Text" xml:space="preserve">
     <value>Recurring Event</value>
+  </data>
+  <data name="recurringevery.Text" xml:space="preserve">
+    <value>Recurring Every</value>
   </data>
   <data name="replies.Text" xml:space="preserve">
     <value>Replies</value>

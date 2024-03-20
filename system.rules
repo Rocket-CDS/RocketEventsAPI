@@ -16,7 +16,7 @@
 		</genxml>
 	</sqlindex>
 
-	<groupsdata list="true">
+    <groupsdata list="true">
     <genxml>
       <textbox>
         <groupref>catalog</groupref>
@@ -112,6 +112,61 @@
 		  </radio>
 	  </genxml>
 
+	  <genxml>
+      <textbox>
+        <interfacekey>scheduler-rocketeventsapi</interfacekey>
+        <namespaceclass>RocketEventsAPI.Components.Scheduler</namespaceclass>
+        <assembly>RocketEventsAPI</assembly>
+        <interfaceicon></interfaceicon>
+        <defaultcommand></defaultcommand>
+        <relpath>/DesktopModules/DNNrocketModules/RocketEventsAPI</relpath>
+      </textbox>
+      <providertype>scheduler</providertype>
+      <dropdownlist>
+        <group></group>
+      </dropdownlist>
+      <checkbox>
+        <onmenu>false</onmenu>
+        <active>true</active>
+      </checkbox>
+      <radio>
+        <securityrolesadministrators>1</securityrolesadministrators>
+        <securityrolesmanager>0</securityrolesmanager>
+        <securityroleseditor>0</securityroleseditor>
+        <securityrolesclienteditor>0</securityrolesclienteditor>
+        <securityrolesregisteredusers>0</securityrolesregisteredusers>
+        <securityrolessubscribers>0</securityrolessubscribers>
+        <securityrolesall>0</securityrolesall>
+      </radio>
+    </genxml>
+
+	  <genxml>
+		  <textbox>
+			  <interfacekey>events-rocketeventsapi</interfacekey>
+			  <namespaceclass>RocketEventsAPI.Components.Events</namespaceclass>
+			  <assembly>RocketEventsAPI</assembly>
+			  <interfaceicon></interfaceicon>
+			  <defaultcommand></defaultcommand>
+			  <relpath>/DesktopModules/DNNrocketModules/RocketEventsAPI</relpath>
+		  </textbox>
+		  <providertype>eventprovider</providertype>
+		  <dropdownlist>
+			  <group></group>
+		  </dropdownlist>
+		  <checkbox>
+			  <onmenu>false</onmenu>
+			  <active>true</active>
+		  </checkbox>
+		  <radio>
+			  <securityrolesadministrators>1</securityrolesadministrators>
+			  <securityrolesmanager>0</securityrolesmanager>
+			  <securityroleseditor>0</securityroleseditor>
+			  <securityrolesclienteditor>0</securityrolesclienteditor>
+			  <securityrolesregisteredusers>0</securityrolesregisteredusers>
+			  <securityrolessubscribers>0</securityrolessubscribers>
+			  <securityrolesall>0</securityrolesall>
+		  </radio>
+	  </genxml>	  
 
   </providerdata>
 
@@ -145,6 +200,34 @@
         <securityrolesall>0</securityrolesall>
       </radio>
     </genxml>
+
+	  <genxml>
+		  <textbox>
+			  <interfacekey>articleadmin</interfacekey>
+			  <namespaceclass>RocketEventsAPI.API.StartConnect</namespaceclass>
+			  <assembly>RocketEventsAPI</assembly>
+			  <interfaceicon>qr_code_2</interfaceicon>
+			  <defaultcommand>articleadmin_editlist</defaultcommand>
+			  <relpath>/DesktopModules/DNNrocketModules/RocketDirectoryAPI</relpath>
+		  </textbox>
+		  <providertype></providertype>
+		  <dropdownlist>
+			  <group></group>
+		  </dropdownlist>
+		  <checkbox>
+			  <onmenu>true</onmenu>
+			  <active>true</active>
+		  </checkbox>
+		  <radio>
+			  <securityrolesadministrators>1</securityrolesadministrators>
+			  <securityrolesmanager>1</securityrolesmanager>
+			  <securityroleseditor>1</securityroleseditor>
+			  <securityrolesclienteditor>0</securityrolesclienteditor>
+			  <securityrolesregisteredusers>0</securityrolesregisteredusers>
+			  <securityrolessubscribers>0</securityrolessubscribers>
+			  <securityrolesall>0</securityrolesall>
+		  </radio>
+	  </genxml>
 
   </interfacedata>
 </genxml>
