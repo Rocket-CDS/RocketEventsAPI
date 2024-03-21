@@ -18,6 +18,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RocketEventsMod", "..\..\Ro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RocketDirectoryMod", "..\..\RocketModules\RocketDirectoryMod\RocketDirectoryMod.csproj", "{9E42696C-4665-44DA-A2A7-4AAC1A73398C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A1024DCE-47DC-4BC9-A0AB-1A555A5A8085}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\dnnpack.config = ..\..\dnnpack.config
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Comp All|Any CPU = Comp All|Any CPU
