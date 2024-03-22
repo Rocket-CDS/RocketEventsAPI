@@ -61,7 +61,7 @@ namespace RocketEventsAPI.Components
                             if (lp == 200) break; // jump out after 200 created.
                         }
                         articleData.Info.SetXmlProperty("genxml/textbox/untildate", eventLoopDate.ToString("O"), TypeCode.DateTime);
-                        articleData.ModuleId = 1; // flag for base recurring
+                        articleData.XrefItemId = 1; // flag for base recurring
                         articleData.Update();
                     } 
                     else
