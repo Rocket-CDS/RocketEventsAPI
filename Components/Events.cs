@@ -66,7 +66,7 @@ namespace RocketEventsAPI.Components
                     } 
                     else
                     {
-                        articleData.ModuleId = -1; // flag for base recurring
+                        articleData.XrefItemId = -1; // flag for base recurring
                         articleData.Update();
                     }
                 }
