@@ -37,7 +37,7 @@ namespace RocketEventsAPI.Components
             var objCtrl = new DNNrocketController();
             var sqlCmd = "SELECT [ItemId] FROM {databaseOwner}[{objectQualifier}RocketDirectoryAPI] ";
             sqlCmd += " where portalid = " + portalId + " and typecode = 'rocketeventsapiART' ";
-            sqlCmd += " and XrefItemId = 1 "; // ModuleId used as flag for recurring base event
+            sqlCmd += " and ModuleId = 1 "; // ModuleId used as flag for recurring base event
             sqlCmd += " for xml raw";
 
             var xmlList = objCtrl.ExecSqlXmlList(sqlCmd);
