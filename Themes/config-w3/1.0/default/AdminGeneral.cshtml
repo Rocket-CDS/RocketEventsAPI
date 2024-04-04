@@ -59,11 +59,11 @@
         @TextBox(info, articleData.NameXPath, " class='w3-input w3-border' autocomplete='off' ", "", true, 0)
     </div>
     <div class=" w3-row w3-padding">
-        <label>@ResourceKey("DNNrocket.summary")</label>&nbsp;@EditFlag(sessionParams)
+        <label>@ResourceKey("DNNrocket.summary")</label>&nbsp;@EditFlag(sessionParams) &nbsp; @ChatGPT("articlesummary", "articlename")
         @TextArea(info, articleData.SummaryXPath, " class='w3-input w3-border' rows='8' autocomplete='off' ", "", true, 0)
     </div>
     <div class=" w3-row w3-padding">
-        <label>@ResourceKey("DNNrocket.description")</label>&nbsp;@EditFlag(sessionParams)
+        <label>@ResourceKey("DNNrocket.description")</label>&nbsp;@EditFlag(sessionParams) &nbsp; @ChatGPT("articlerichtext", "articlename")
         @CKEditor4(info, articleData.RichTextXPath, true)
     </div>
     <div class=" w3-row w3-padding">
