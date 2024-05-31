@@ -2,7 +2,7 @@
 	<packages>
     
 		<package name="RocketEventsAPI" type="Library" version="1.0.0">
-			<friendlyName>RocketEventsAPI Nevoweb</friendlyName>
+			<friendlyName>RocketEventsAPI</friendlyName>
 			<DefinitionName>RocketEventsAPI</DefinitionName>
 			<description>RocketEventsAPI</description>
       <iconFile></iconFile>
