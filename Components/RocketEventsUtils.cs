@@ -74,9 +74,9 @@ namespace RocketEventsAPI.Components
             {
                 var objCtrl = new DNNrocketController();
 
-                DateTime rDateStart = new DateTime(yearInt, monthInt, 1, 0, 0, 0).Date;
+                DateTime rDateStart = new DateTime(yearInt, monthInt, 1, 0, 0, 0).Date.AddSeconds(-1);
                 DateTime rDateEnd = new DateTime(yearInt, monthInt, DateTime.DaysInMonth(yearInt, monthInt), 0, 0, 0).Date;
-                var sqlFilter = " and eventstartdate.GUIDKey >= '" + rDateStart.ToString("O") + "' ";
+                var sqlFilter = " and eventstartdate.GUIDKey > '" + rDateStart.ToString("O") + "' ";
                 sqlFilter += " and eventstartdate.GUIDKey <= '" + rDateEnd.ToString("O") + "' ";
                 var orderBy = " order by eventstartdate.GUIDKey ";
                 var l = objCtrl.GetList(portalId, -1, "rocketeventsapiART", sqlFilter, cultureCode, orderBy, 0, 0, 0, 0, "RocketDirectoryAPI");
@@ -109,7 +109,7 @@ namespace RocketEventsAPI.Components
             {
                 var monthList = GetMonthEvents(portalId, cultureCode, yearInt, monthInt);
                 var lp = 1;
-                while (lp < DateTime.DaysInMonth(yearInt, monthInt))
+                while (lp <= DateTime.DaysInMonth(yearInt, monthInt))
                 {
                     DateTime dayDate = new DateTime(yearInt, monthInt, lp, 0, 0, 0).Date;
                     var dayList = new List<ArticleLimpet>();
