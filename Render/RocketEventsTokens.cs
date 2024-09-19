@@ -18,9 +18,9 @@ namespace RocketEventsAPI.Components
         public DateTime articleEventStartDate;
         public DateTime articleEventEndDate;
         public string[] listUrlParams;
-        public new string AssigDataModel(SimplisityRazor sModel)
+        public new string AssignDataModel(SimplisityRazor sModel)
         {
-            base.AssigDataModel(sModel);
+            base.AssignDataModel(sModel);
 
             // Display Month (from URL)
             calMonthStartDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
