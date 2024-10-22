@@ -168,6 +168,9 @@
   <data name="imagewidthrss.Text" xml:space="preserve">
     <value>RSS image Width</value>
   </data>
+  <data name="latest.Text" xml:space="preserve">
+    <value>Latest</value>
+  </data>
   <data name="like.Text" xml:space="preserve">
     <value>Like</value>
   </data>

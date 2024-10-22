@@ -65,6 +65,22 @@ namespace RocketEventsAPI.Components
             eventList.Reverse();
             return eventList;
         }
+        public static List<ArticleLimpet> GetPassedEvents(int portalId, string cultureCode, int nextCount = 3)
+        {
+            var eventList = new List<ArticleLimpet>();
+            if (nextCount == 0) return eventList;
+            var objCtrl = new DNNrocketController();
+            var sqlFilter = " and eventstartdate.GUIDKey <= '" + DateTime.Now.Date.ToString("O") + "' ";
+            var orderBy = " order by eventstartdate.GUIDKey ";
+            var l = objCtrl.GetList(portalId, -1, "rocketeventsapiART", sqlFilter, cultureCode, orderBy, nextCount, 0, 0, 0, "RocketDirectoryAPI");
+            foreach (SimplisityInfo sInfo in l)
+            {
+                var ev1 = new ArticleLimpet(sInfo);
+                if (ev1.Exists) eventList.Add(ev1);
+            }
+            eventList.Reverse();
+            return eventList;
+        }
         public static List<ArticleLimpet> GetMonthEvents(int portalId, string cultureCode, int yearInt, int monthInt)
         {
 

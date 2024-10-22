@@ -39,8 +39,8 @@ namespace RocketEventsAPI.Components
             {
                 if (mDate == 0)
                 {
-                    monthStartDate = DateTime.Now.AddMonths(-2).Date;
-                    monthEndDate = DateTime.Now.Date;
+                    monthStartDate = new DateTime(DateTime.Now.Year, DateTime.Now.AddMonths(-2).Month, 1, 0, 0, 0).Date;
+                    monthEndDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month), 0, 0, 0).Date;
                 }
                 else
                 {
@@ -68,6 +68,10 @@ namespace RocketEventsAPI.Components
             var nextcount = moduleData.GetSettingInt("nextcount");
             var eventListData = RocketEventsUtils.GetNextEvents(portalData.PortalId, sessionParams.CultureCode, nextcount);
             sModel.SetDataObject("eventnextlist", eventListData);
+
+            // Passed Event List
+            var eventListDataP = RocketEventsUtils.GetPassedEvents(portalData.PortalId, sessionParams.CultureCode, nextcount);
+            sModel.SetDataObject("eventpassedlist", eventListDataP);
 
             // Events In Month
             var eventListData2 = RocketEventsUtils.GetMonthEvents(portalData.PortalId, sessionParams.CultureCode, yDate, mDate);
