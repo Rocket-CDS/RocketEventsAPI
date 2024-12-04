@@ -177,23 +177,8 @@
   <data name="monthly.Text" xml:space="preserve">
     <value>Monthly</value>
   </data>
-  <data name="nextcount.Text" xml:space="preserve">
-    <value>Number of next events to display</value>
-  </data>
   <data name="noresults.Text" xml:space="preserve">
     <value>No Events </value>
-  </data>
-  <data name="numberofdays.Text" xml:space="preserve">
-    <value>Number of future days for list on first load.</value>
-  </data>
-  <data name="numberofhistorydays.Text" xml:space="preserve">
-    <value>Number of history days for list on first load</value>
-  </data>
-  <data name="numberofhistorymonths.Text" xml:space="preserve">
-    <value>Number of history months</value>
-  </data>
-  <data name="numberofmonths.Text" xml:space="preserve">
-    <value>Number of future months</value>
   </data>
   <data name="postcomments.Text" xml:space="preserve">
     <value>Post Comments</value>

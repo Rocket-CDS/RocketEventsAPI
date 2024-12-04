@@ -23,6 +23,7 @@ namespace RocketEventsAPI.Components
                     if (portalid == 0) portalid = PortalUtils.GetCurrentPortalId();
                     var cultureCode = DNNrocketUtils.GetCurrentCulture();
                     var articleData = new ArticleLimpet(portalid, articleId, cultureCode, systemData.SystemKey);
+                    var portalData = new PortalCatalogLimpet(portalid, cultureCode, systemData.SystemKey);
 
                     // Delete any existing recurring children in DB
                     RocketEventsUtils.RemoveRecurringEvents(articleData);
@@ -48,7 +49,7 @@ namespace RocketEventsAPI.Components
                             var ev = new ArticleLimpet(evCloneInfo);
                             ev.Info.ItemID = -1;
                             ev.Info.ModuleId = -1;
-                            ev.Info.XrefItemId = 0;                            
+                            ev.Info.XrefItemId = 0;
                             ev.ParentItemId = articleData.ArticleId;
                             ev.Info.SetXmlProperty("genxml/textbox/eventstartdate", eventLoopDate.ToString("O"), TypeCode.DateTime);
                             ev.Info.SetXmlProperty("genxml/textbox/eventenddate", eventLoopDate.AddDays(eventDays).ToString("O"), TypeCode.DateTime);
@@ -63,11 +64,15 @@ namespace RocketEventsAPI.Components
                         articleData.Info.SetXmlProperty("genxml/textbox/untildate", eventLoopDate.ToString("O"), TypeCode.DateTime);
                         articleData.XrefItemId = 1; // flag for base recurring
                         articleData.Update();
-                    } 
+
+                        DNNrocketUtils.SynchronizeModule(portalData.SearchModuleId); // module search
+                    }
                     else
                     {
                         articleData.XrefItemId = -1; // flag for base recurring
                         articleData.Update();
+                        SearchUtils.DeleteModuleDocuments(portalData.PortalId, portalData.SearchModuleId); // module search
+                        DNNrocketUtils.SynchronizeModule(portalData.SearchModuleId); // module search
                     }
                 }
             }

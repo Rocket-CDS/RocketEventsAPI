@@ -1,8 +1,8 @@
 <dotnetnuke type="Package" version="5.0">
 	<packages>
     
-		<package name="RocketEventsAPI" type="Library" version="1.0.1">
-			<friendlyName>RocketEventsAPI</friendlyName>
+		<package name="RocketEventsAPI" type="Library" version="1.1.0">
+			<friendlyName>RocketEventsAPI by Nevoweb</friendlyName>
 			<DefinitionName>RocketEventsAPI</DefinitionName>
 			<description>RocketEventsAPI</description>
       <iconFile></iconFile>
@@ -22,10 +22,11 @@
         RocketEventsAPI uses the DNNRocket framework
       </releaseNotes>
 
-      <dependencies>
-        <dependency type="CoreVersion">09.00.00</dependency>
-        <dependency type="managedPackage" version="1.0.0">RocketSystem</dependency>
-      </dependencies>
+	<dependencies>
+		<dependency type="CoreVersion">09.00.00</dependency>
+		<dependency type="managedPackage" version="1.3.9">RocketSystem</dependency>
+		<dependency type="managedPackage" version="1.2.3">RocketDirectoryAPI</dependency>
+	</dependencies>
             
       <components>
         

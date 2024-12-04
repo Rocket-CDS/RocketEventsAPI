@@ -22,7 +22,6 @@ namespace RocketEventsAPI.Components
         {
             base.AssignDataModel(sModel);
 
-            // Display Month (from URL)
             calMonthStartDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
             var calYear = sModel.SessionParamsData.GetInt("calyear");
             if (calYear == 0) calYear = DateTime.Now.Year;
@@ -30,47 +29,17 @@ namespace RocketEventsAPI.Components
             if (calMonth == 0) calMonth = DateTime.Now.Month;
             if (calMonth > 0 && calYear > 0) calMonthStartDate = new DateTime(calYear, calMonth, 1, 0, 0, 0).Date;
 
-            // if we have "Search" in the URL params use it as searchtext.
-            if (sModel.SessionParamsData.Get("search") != "") sModel.SessionParamsData.Set("searchtext", sModel.SessionParamsData.Get("search"));
-            var searchText = sModel.SessionParamsData.Get("searchtext");
             var yDate = sModel.SessionParamsData.GetInt("year");
             var mDate = sModel.SessionParamsData.GetInt("month");
-            if (searchText == "")
-            {
-                if (mDate == 0)
-                {
-                    monthStartDate = new DateTime(DateTime.Now.Year, DateTime.Now.AddMonths(-2).Month, 1, 0, 0, 0).Date;
-                    monthEndDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month), 0, 0, 0).Date;
-                }
-                else
-                {
-                    monthStartDate = new DateTime(yDate, mDate, 1, 0, 0, 0).Date;
-                    monthEndDate = new DateTime(yDate, mDate, DateTime.DaysInMonth(yDate, mDate), 0, 0, 0).Date;
-                }
-            }
-            else
-            {
-                // do search on 3 years
-                monthStartDate = DateTime.Now.AddYears(-2).Date;
-                monthEndDate = DateTime.Now.AddYears(1).Date;
-            }
-            sModel.SessionParamsData.Set("searchdate1", monthStartDate.ToString("O"));
-            sModel.SessionParamsData.Set("searchdate2", monthEndDate.ToString("O"));
-
-
-            var articleDataList = new ArticleLimpetList(sModel.SessionParamsData, portalContent, sModel.SessionParamsData.CultureCode, true, false);
-            sModel.SetDataObject("articlelist", articleDataList);
-
             // Event List Params
             listUrlParams = new string[] { "month", mDate.ToString(), "year", yDate.ToString() };
 
             // Event List
-            var nextcount = moduleData.GetSettingInt("nextcount");
-            var eventListData = RocketEventsUtils.GetNextEvents(portalData.PortalId, sessionParams.CultureCode, nextcount);
+            var eventListData = RocketEventsUtils.GetNextEvents(portalData.PortalId, sessionParams.CultureCode);
             sModel.SetDataObject("eventnextlist", eventListData);
 
             // Passed Event List
-            var eventListDataP = RocketEventsUtils.GetPassedEvents(portalData.PortalId, sessionParams.CultureCode, nextcount);
+            var eventListDataP = RocketEventsUtils.GetPassedEvents(portalData.PortalId, sessionParams.CultureCode);
             sModel.SetDataObject("eventpassedlist", eventListDataP);
 
             // Events In Month
