@@ -178,7 +178,7 @@
 			  <interfacekey>articleadmin</interfacekey>
 			  <namespaceclass>RocketEventsAPI.API.StartConnect</namespaceclass>
 			  <assembly>RocketEventsAPI</assembly>
-			  <interfaceicon>qr_code_2</interfaceicon>
+			  <interfaceicon>article</interfaceicon>
 			  <defaultcommand>articleadmin_editlist</defaultcommand>
 			  <relpath>/DesktopModules/DNNrocketModules/RocketDirectoryAPI</relpath>
 		  </textbox>

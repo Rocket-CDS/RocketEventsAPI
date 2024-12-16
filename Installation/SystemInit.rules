@@ -1,0 +1,53 @@
+﻿<genxml>
+	<hidden>
+		<systemkey>rocketeventsapi</systemkey>
+		<basesystemkey>rocketdirectoryapi</basesystemkey>
+	</hidden>
+	<select>
+		<selectedprojectnameadmin></selectedprojectnameadmin>
+		<appthemeadmin></appthemeadmin>
+		<appthemeadminversion></appthemeadminversion>
+	</select>
+	<listpage></listpage>
+	<detailpage></detailpage>
+	<default>true</default>
+	<config>
+		<sortorder>1</sortorder>
+	</config>
+	<maxarticles>1000</maxarticles>
+	<articlesimagelimit>12</articlesimagelimit>
+	<articlesdocumentlimit>12</articlesdocumentlimit>
+	<imageresize>640</imageresize>
+	<securitykey></securitykey>
+	<sqlfilterarticle>
+		<![CDATA[
+		{contains:searchtext}
+		and
+		(
+			([XMLData].value('(genxml/textbox/eventstartdate)[1]','date') >= convert(date,'{searchdate1}') or '{searchdate1}' = '')
+			and
+			([XMLData].value('(genxml/textbox/eventstartdate)[1]','date') <= convert(date,'{searchdate2}') or '{searchdate2}' = '')
+		)
+		]]>
+	</sqlfilterarticle>
+	<sqlfilterarticleadmin>
+		<![CDATA[
+		{contains:searchtext}
+		]]>
+	</sqlfilterarticleadmin>
+	<schedulerrunhours>24</schedulerrunhours>
+	<emailon>true</emailon>
+	<debugmode>false</debugmode>
+	<secureupload>false</secureupload>
+	<checkboxfilterand>false</checkboxfilterand>
+	<checkbox>
+		<active>true</active>
+	</checkbox>
+	<sqlorderbyproduct list="true">
+		<genxml>
+			<default>true</default>
+			<key>sqlorderby-eventstartdate-desc</key>
+			<value>order by eventstartdate.GUIDKey desc</value>
+		</genxml>
+	</sqlorderbyproduct>
+</genxml>
