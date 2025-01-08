@@ -21,18 +21,18 @@
 	<securitykey></securitykey>
 	<sqlfilterarticle>
 		<![CDATA[
-		{contains:searchtext}
-		and
-		(
-			([XMLData].value('(genxml/textbox/eventstartdate)[1]','date') >= convert(date,'{searchdate1}') or '{searchdate1}' = '')
-			and
-			([XMLData].value('(genxml/textbox/eventstartdate)[1]','date') <= convert(date,'{searchdate2}') or '{searchdate2}' = '')
-		)
+{contains:searchtext}
+and
+(
+	([XMLData].value('(genxml/textbox/eventstartdate)[1]','date') >= convert(date,'{searchdate1}') or '{searchdate1}' = '')
+	and
+	([XMLData].value('(genxml/textbox/eventstartdate)[1]','date') <= convert(date,'{searchdate2}') or '{searchdate2}' = '')
+)
 		]]>
 	</sqlfilterarticle>
 	<sqlfilterarticleadmin>
 		<![CDATA[
-		{contains:searchtext}
+{contains:searchtext}
 		]]>
 	</sqlfilterarticleadmin>
 	<schedulerrunhours>24</schedulerrunhours>
