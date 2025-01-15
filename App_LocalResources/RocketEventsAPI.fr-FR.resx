@@ -174,4 +174,52 @@
   <data name="eventdate.Text" xml:space="preserve">
     <value>Date de l'évènement</value>
   </data>
+  <data name="alldayevent.Text" xml:space="preserve">
+    <value>Toute la journée</value>
+  </data>
+  <data name="autopublish.Text" xml:space="preserve">
+    <value>Publication automatique</value>
+  </data>
+  <data name="autopublishoption.Text" xml:space="preserve">
+    <value>Option de publication automatique</value>
+  </data>
+  <data name="daily.Text" xml:space="preserve">
+    <value>Quotidiennement</value>
+  </data>
+  <data name="eventtype.Text" xml:space="preserve">
+    <value>Type d'événement</value>
+  </data>
+  <data name="imageheightrss.Text" xml:space="preserve">
+    <value>Hauteur de l'image RSS</value>
+  </data>
+  <data name="imagewidthrss.Text" xml:space="preserve">
+    <value>Largeur de l'image RSS</value>
+  </data>
+  <data name="latest.Text" xml:space="preserve">
+    <value>Dernières nouvelles</value>
+  </data>
+  <data name="monthly.Text" xml:space="preserve">
+    <value>Mensuel</value>
+  </data>
+  <data name="publisheddate.Text" xml:space="preserve">
+    <value>Date de publication</value>
+  </data>
+  <data name="recurringevent.Text" xml:space="preserve">
+    <value>Événement récurrent</value>
+  </data>
+  <data name="recurringevery.Text" xml:space="preserve">
+    <value>Récurrent Tous les</value>
+  </data>
+  <data name="reverseorderby.Text" xml:space="preserve">
+    <value>OrderBy descendant date de l'événement</value>
+  </data>
+  <data name="untildate.Text" xml:space="preserve">
+    <value>Jusqu'à la date</value>
+  </data>
+  <data name="weekly.Text" xml:space="preserve">
+    <value>Hebdomadaire</value>
+  </data>
+  <data name="yearly.Text" xml:space="preserve">
+    <value>Annuel</value>
+  </data>
 </root>
