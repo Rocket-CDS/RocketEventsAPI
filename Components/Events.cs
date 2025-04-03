@@ -21,7 +21,8 @@ namespace RocketEventsAPI.Components
                 {
                     var portalid = paramInfo.GetXmlPropertyInt("genxml/hidden/portalid");
                     if (portalid == 0) portalid = PortalUtils.GetCurrentPortalId();
-                    var cultureCode = DNNrocketUtils.GetCurrentCulture();
+                    var sessionParams = new SessionParams(paramInfo);
+                    var cultureCode = sessionParams.CultureCodeEdit;
                     var articleData = new ArticleLimpet(portalid, articleId, cultureCode, systemData.SystemKey);
                     var portalData = new PortalCatalogLimpet(portalid, cultureCode, systemData.SystemKey);
 
