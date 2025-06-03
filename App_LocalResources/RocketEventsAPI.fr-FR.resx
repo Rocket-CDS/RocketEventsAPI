@@ -120,62 +120,11 @@
   <data name="addcomment.Text" xml:space="preserve">
     <value>Add Comment</value>
   </data>
-  <data name="comment.Text" xml:space="preserve">
-    <value>Comment</value>
-  </data>
-  <data name="comments.Text" xml:space="preserve">
-    <value>Comments</value>
-  </data>
-  <data name="like.Text" xml:space="preserve">
-    <value>Like</value>
-  </data>
-  <data name="postcomments.Text" xml:space="preserve">
-    <value>Post Comments</value>
-  </data>
-  <data name="rating.Text" xml:space="preserve">
-    <value>Rating</value>
-  </data>
-  <data name="readmore.Text" xml:space="preserve">
-    <value>Lire la suite</value>
-  </data>
-  <data name="replies.Text" xml:space="preserve">
-    <value>Réponses</value>
-  </data>
-  <data name="turnoffcomments.Text" xml:space="preserve">
-    <value>Désactiver les commentaires</value>
-  </data>
-  <data name="noresults.Text" xml:space="preserve">
-    <value>Aucun résultat</value>
-  </data>
-  <data name="back.Text" xml:space="preserve">
-    <value>Retour</value>
+  <data name="alldayevent.Text" xml:space="preserve">
+    <value>Toute la journée</value>
   </data>
   <data name="allevents.Text" xml:space="preserve">
     <value>Tout l'agenda</value>
-  </data>
-  <data name="events.Text" xml:space="preserve">
-    <value>Agenda</value>
-  </data>
-  <data name="tags.Text" xml:space="preserve">
-    <value>Tags</value>
-  </data>
-  <data name="eventenddate.Text" xml:space="preserve">
-    <value>Date de fin</value>
-  </data>
-  <data name="eventendtime.Text" xml:space="preserve">
-    <value>Heure</value>
-  </data>
-  <data name="eventstartdate.Text" xml:space="preserve">
-    <value>Date de début</value>
-  </data>
-  <data name="eventstarttime.Text" xml:space="preserve">
-    <value>Heure</value>
-  </data>
-  <data name="eventdate.Text" xml:space="preserve">
-    <value>Date de l'évènement</value>
-  </data>
-  <data name="alldayevent.Text" xml:space="preserve">
-    <value>Toute la journée</value>
   </data>
   <data name="autopublish.Text" xml:space="preserve">
     <value>Publication automatique</value>
@@ -183,8 +132,32 @@
   <data name="autopublishoption.Text" xml:space="preserve">
     <value>Option de publication automatique</value>
   </data>
+  <data name="comment.Text" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="comments.Text" xml:space="preserve">
+    <value>Comments</value>
+  </data>
   <data name="daily.Text" xml:space="preserve">
     <value>Quotidiennement</value>
+  </data>
+  <data name="eventdate.Text" xml:space="preserve">
+    <value>Date de l'évènement</value>
+  </data>
+  <data name="eventenddate.Text" xml:space="preserve">
+    <value>Date de fin</value>
+  </data>
+  <data name="eventendtime.Text" xml:space="preserve">
+    <value>Heure</value>
+  </data>
+  <data name="events.Text" xml:space="preserve">
+    <value>Agenda</value>
+  </data>
+  <data name="eventstartdate.Text" xml:space="preserve">
+    <value>Date de début</value>
+  </data>
+  <data name="eventstarttime.Text" xml:space="preserve">
+    <value>Heure</value>
   </data>
   <data name="eventtype.Text" xml:space="preserve">
     <value>Type d'événement</value>
@@ -198,11 +171,26 @@
   <data name="latest.Text" xml:space="preserve">
     <value>Dernières nouvelles</value>
   </data>
+  <data name="like.Text" xml:space="preserve">
+    <value>Like</value>
+  </data>
   <data name="monthly.Text" xml:space="preserve">
     <value>Mensuel</value>
   </data>
+  <data name="noresults.Text" xml:space="preserve">
+    <value>Aucun résultat</value>
+  </data>
+  <data name="postcomments.Text" xml:space="preserve">
+    <value>Post Comments</value>
+  </data>
   <data name="publisheddate.Text" xml:space="preserve">
     <value>Date de publication</value>
+  </data>
+  <data name="rating.Text" xml:space="preserve">
+    <value>Rating</value>
+  </data>
+  <data name="readmore.Text" xml:space="preserve">
+    <value>Lire la suite</value>
   </data>
   <data name="recurringevent.Text" xml:space="preserve">
     <value>Événement récurrent</value>
@@ -210,8 +198,14 @@
   <data name="recurringevery.Text" xml:space="preserve">
     <value>Récurrent Tous les</value>
   </data>
+  <data name="replies.Text" xml:space="preserve">
+    <value>Réponses</value>
+  </data>
   <data name="reverseorderby.Text" xml:space="preserve">
     <value>OrderBy descendant date de l'événement</value>
+  </data>
+  <data name="turnoffcomments.Text" xml:space="preserve">
+    <value>Désactiver les commentaires</value>
   </data>
   <data name="untildate.Text" xml:space="preserve">
     <value>Jusqu'à la date</value>
