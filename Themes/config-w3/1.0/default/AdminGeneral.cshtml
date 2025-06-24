@@ -7,7 +7,15 @@
 @{
     DateTime today = DateTime.Today;
     var todayString = today.ToString("O");
+
+    var dateError = "";
+    if (info.GetXmlPropertyDate("genxml/textbox/eventenddate") < info.GetXmlPropertyDate("genxml/textbox/eventstartdate"))
+    {
+        dateError = "w3-pale-red w3-border-red";
+    }
+
 }
+
 <div class="w3-row">
     <div class='w3-row'>
         <div class="w3-quarter w3-padding">
@@ -27,7 +35,7 @@
                     <label>@ResourceKey("RocketEventsApi.eventstartdate")</label><br />
                     @TextBoxDate(info, "genxml/textbox/eventstartdate", " class='w3-input w3-border' autocomplete='off'", todayString, false, 0)
                     <label>@ResourceKey("RocketEventsApi.eventenddate")</label><br />
-                    @TextBoxDate(info, "genxml/textbox/eventenddate", " class='w3-input w3-border' autocomplete='off'", todayString, false, 0)
+                    @TextBoxDate(info, "genxml/textbox/eventenddate", " class='w3-input w3-border " + dateError + " ' autocomplete='off'", todayString, false, 0)
                 </div>
                 <div class="w3-half w3-padding timedisplay">
                     <label>@ResourceKey("RocketEventsApi.eventstarttime")</label><br />
