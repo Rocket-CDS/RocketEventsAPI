@@ -1,7 +1,7 @@
 <dotnetnuke type="Package" version="5.0">
 	<packages>
     
-		<package name="RocketEventsAPI" type="Library" version="1.1.0">
+		<package name="RocketEventsAPI" type="Library" version="1.1.1">
 			<friendlyName>RocketEventsAPI by Nevoweb</friendlyName>
 			<DefinitionName>RocketEventsAPI</DefinitionName>
 			<description>RocketEventsAPI</description>
