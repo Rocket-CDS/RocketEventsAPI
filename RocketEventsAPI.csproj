@@ -14,6 +14,7 @@
     <ProjectReference Include="..\..\DNNrocket\API\DNNrocketAPI.csproj" />
     <ProjectReference Include="..\..\DNNrocket\RocketPortal\RocketPortal.csproj" />
     <ProjectReference Include="..\..\DNNrocket\Simplisity\Simplisity.csproj" />
+    <ProjectReference Include="..\..\DNNrocket\RocketRazorEngine\RocketRazorEngine.csproj" />
     <ProjectReference Include="..\RocketDirectoryAPI\RocketDirectoryAPI.csproj" />
   </ItemGroup>
 
