@@ -72,7 +72,7 @@
     </div>
     <div class=" w3-row w3-padding">
         <label>@ResourceKey("DNNrocket.description")</label>&nbsp;@EditFlag(sessionParams) &nbsp; @ChatGPT("articlerichtext", "articlename")
-        @CKEditor4(info, articleData.RichTextXPath, true)
+        @Editor(info, articleData.RichTextXPath, Model)
     </div>
     <div class=" w3-row w3-padding">
         @RenderTemplate("AdminExtra.cshtml", appTheme, Model, true)

@@ -17,6 +17,12 @@
     <ProjectReference Include="..\RocketDirectoryAPI\RocketDirectoryAPI.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="RazorEngine">
+      <HintPath>..\..\DNNrocket\RocketEndInstall\_external\RazorEngine.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
   <Target Name="PostBuild" AfterTargets="PostBuildEvent">
     <Exec Command="copy &quot;$(ProjectDir)$(OutDir)$(TargetFileName)&quot; &quot;$(ProjectDir)..\..\DNNrocket\bin\$(TargetFileName)&quot;&#xD;&#xA;&#xD;&#xA;DNNpackager.exe $(ProjectDir) $(ProjectDir)$(OutDir) $(ConfigurationName)" />
   </Target>
