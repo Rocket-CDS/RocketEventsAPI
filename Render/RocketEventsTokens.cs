@@ -18,6 +18,9 @@ namespace RocketEventsAPI.Components
         public DateTime articleEventStartDate;
         public DateTime articleEventEndDate;
         public string[] listUrlParams;
+        /// <summary>
+        /// Assigns and prepares the data model for Razor event templates. It calls the base class's AssignDataModel, sets up date parameters for calendar views, and populates several event lists (next events, past events, monthly events, etc.) into the SimplisityRazor model.
+        /// </summary>
         public new string AssignDataModel(SimplisityRazor sModel)
         {
             base.AssignDataModel(sModel);
@@ -64,6 +67,9 @@ namespace RocketEventsAPI.Components
 
             return "";
         }
+        /// <summary>
+        /// Generates a URL for an RSS feed of events for a specific month and year. The URL includes parameters for the command, month, year, and a SQL index for sorting by event start date.
+        /// </summary>
         public IEncodedString RssEventUrl(int portalId, string cmd, int monthDate, int yearDate)
         {
             var portalData = new PortalLimpet(portalId);
